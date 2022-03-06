@@ -1,0 +1,59 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<body>
+   <div class="container">
+      <div class="col-md-6 mx-auto text-center">
+         <div class="header-title">
+            <h1 class="wv-heading--title">
+              create account
+            </h1>
+            <h2 class="wv-heading--subtitle">
+               Gadget Mart Shopping LK is a best shop in the world. join with us.
+            </h2>
+         </div>
+      </div>
+     <div *ngIf="emptyfielderr" style="text-align: center;background: #f15959;color: white;padding: 14px;border-radius: 6px;margin-bottom: 15px;">
+       please fill all fields
+     </div>
+      <div class="row">
+         <div class="col-md-4 mx-auto">
+            <div class="myform form ">
+               <form  [formGroup]="login" action="" method="POST">
+                  <div class="form-group">
+                     <input type="text" name="name" formControlName="name" class="form-control my-input" id="inputname" placeholder="Name" required>
+                  </div>
+                  <div class="form-group">
+                     <input type="number" name="mobile" formControlName="mobile"   class="form-control my-input" id="mobile" placeholder="Mobile" required>
+                  </div>
+                  <div class="form-group">
+                     <input type="text" min="0"  name="address" formControlName="address" id="adress"  class="form-control my-input" placeholder="Address" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" min="0" formControlName="password" name="password" id="password"  class="form-control my-input" placeholder="Password" required>
+                 </div>
+                  <div class="text-center ">
+                     <button type="button" (click)="signup()" class=" btn btn-block send-button tx-tfm">Create Your Free Account</button>
+                  </div>
+                  <div class="col-md-12 ">
+                     <div class="login-or">
+                        <hr class="hr-or">
+                        <span class="span-or"></span>
+                     </div>
+                  </div>
+<!--                  <div class="form-group">-->
+<!--                     <a class="btn btn-block g-button" href="#">-->
+<!--                     <i class="fa fa-google"></i> Sign up with Google-->
+<!--                     </a>-->
+<!--                  </div>-->
+<!--                  <p class="small mt-3">By signing up, you are indicating that you have read and agree to the <a href="#" class="ps-hero__content__link">Terms of Use</a> and <a href="#">Privacy Policy</a>.-->
+<!--                  </p>-->
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>

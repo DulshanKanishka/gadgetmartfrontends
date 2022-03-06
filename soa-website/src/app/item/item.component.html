@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+<form [formGroup]="items" class="form-horizontal" action='' method="POST">
+
+  <div
+    class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow
+    main-navbar sticky-top">
+    <div class="container main-navbar-inner-one">
+
+
+    <h5 class="my-0 mr-md-auto font-weight-normal navbar-main-titlae">Gadget Mart LK</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <!--      <a class="p-2 text-dark" href="#">Features</a>-->
+      <!--      <a class="p-2 text-dark" href="#">Enterprise</a>-->
+      <!--      <a class="p-2 text-dark" href="#">Support</a>-->
+      <!--      &lt;!&ndash; <a class="p-2 text-dark" formControlName="profile" href="#">Profile</a> &ndash;&gt;-->
+
+      <!--      <input formControlName="profile" id="inputname" class="border-0 m-10" name="name" placeholder="">-->
+    </nav>
+
+    <div>
+      <ul class="nav navbar-nav navbar-right m-10">
+        <li class="dropdown">
+          <!--          <a href="#" class="dropdown-toggle"  role="button" aria-expanded="false">home</a>-->
+          <ul class="dropdown-menu dropdown-cart" role="menu">
+            <li>
+                  <span class="item">
+                    <span class="item-left">
+<!--                        <img src="http://lorempixel.com/50/50/" alt=""/>-->
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+            </li>
+            <li>
+                  <span class="item">
+                    <span class="item-left">
+<!--                        <img src="http://lorempixel.com/50/50/" alt=""/>-->
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+            </li>
+            <li>
+                  <span class="item">
+                    <span class="item-left">
+<!--                        <img src="http://lorempixel.com/50/50/" alt=""/>-->
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+            </li>
+            <li>
+                  <span class="item">
+                    <span class="item-left">
+<!--                        <img src="http://lorempixel.com/50/50/" alt=""/>-->
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+            </li>
+            <li class="divider"></li>
+            <li><a class="text-center" href="">View Cart</a>
+            <span [innerHTML]="cartitem"></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
+<!--    <a class="btn btn-outline-primary ml-5 main-nav-mai-btns" href="#">Home</a>-->
+    <a class="btn btn-outline-primary ml-5  main-nav-mai-btns" routerLink="/route-cart"
+       routerLinkActive="active" href="#">Cart</a><span class="crtitemcount" [innerHTML]="cartitem"></span>
+    <a class="btn btn-outline-primary ml-5  main-nav-mai-btns" *ngIf="loginbt" routerLink="/route-login"
+       routerLinkActive="active" href="#">Login</a>
+    <a class="btn btn-outline-primary m-1 main-nav-mai-btns" *ngIf="logoutbt" (click)="logout()" href="#">Sign Out</a>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3  my-5" *ngFor="let items of item">
+        <mdb-card>
+          <div class="bg-image hover-zoom">
+            <img src="../../assets/img/nokia 6.1.png" alt="Card image cap" class="prod-img img-fluid w-100">
+<!--            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.webp" class="img-fluid" />-->
+          </div>
+          <mdb-card-body>
+            <mdb-card-title>
+              <h4 class="items-name-txt">{{items.brand}}</h4>
+            </mdb-card-title>
+
+            <mdb-card-text>
+              Rs. {{items.price}}.00
+            </mdb-card-text>
+
+            <button mdbBtn (click)="addtocart(items.name,items.id,items.price)" color="primary" class="add-to-crt-btn">Add Cart</button>
+          </mdb-card-body>
+        </mdb-card>
+      </div>
+    </div>
+  </div>
+
+</form>
+</body>
+
+</html>

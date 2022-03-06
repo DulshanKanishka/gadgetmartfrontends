@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+<form [formGroup]="items" class="form-horizontal" action='' method="POST">
+
+  <div
+    class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow
+    main-navbar sticky-top">
+    <div class="container main-navbar-inner-one">
+
+
+      <h5 class="my-0 mr-md-auto font-weight-normal navbar-main-titlae">Gadget Mart LK</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <!--      <a class="p-2 text-dark" href="#">Features</a>-->
+        <!--      <a class="p-2 text-dark" href="#">Enterprise</a>-->
+        <!--      <a class="p-2 text-dark" href="#">Support</a>-->
+        <!--      &lt;!&ndash; <a class="p-2 text-dark" formControlName="profile" href="#">Profile</a> &ndash;&gt;-->
+
+        <!--      <input formControlName="profile" id="inputname" class="border-0 m-10" name="name" placeholder="">-->
+      </nav>
+
+      <div>
+        <ul class="nav navbar-nav navbar-right m-10">
+          <li class="dropdown">
+            <!--          <a href="#" class="dropdown-toggle"  role="button" aria-expanded="false">home</a>-->
+            <ul class="dropdown-menu dropdown-cart" role="menu">
+              <li>
+                  <span class="item">
+                    <span class="item-left">
+<!--                        <img src="http://lorempixel.com/50/50/" alt=""/>-->
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+              </li>
+              <li>
+                  <span class="item">
+                    <span class="item-left">
+<!--                        <img src="http://lorempixel.com/50/50/" alt=""/>-->
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+              </li>
+              <li>
+                  <span class="item">
+                    <span class="item-left">
+<!--                        <img src="http://lorempixel.com/50/50/" alt=""/>-->
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+              </li>
+              <li>
+                  <span class="item">
+                    <span class="item-left">
+<!--                        <img src="http://lorempixel.com/50/50/" alt=""/>-->
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+              </li>
+              <li class="divider"></li>
+              <li><a class="text-center" href="">View Cart</a>
+                <span [innerHTML]="cartitem"></span></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+
+      <a class="btn btn-outline-primary ml-5 main-nav-mai-btns" href="#" routerLink="/route-item"
+         routerLinkActive="active">Home</a>
+<!--      <a class="btn btn-outline-primary ml-5  main-nav-mai-btns" routerLink="/route-cart"-->
+<!--         routerLinkActive="active" href="#">Cart</a><span class="crtitemcount" [innerHTML]="cartitem"></span>-->
+      <a class="btn btn-outline-primary ml-5  main-nav-mai-btns" *ngIf="loginbt" routerLink="/route-login"
+         routerLinkActive="active" href="#">Login</a>
+      <a class="btn btn-outline-primary m-1 main-nav-mai-btns" *ngIf="logoutbt" (click)="logout()" href="#">Sign Out</a>
+
+    </div>
+  </div>
+
+  <div class="container cart">
+    <div class="row">
+      <div class="col-md-9">
+        <table class="table">
+          <thead>
+          <tr>
+            <!--          <th scope="col"></th>-->
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Price</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let items of item">
+          <tr>
+            <!--          <th scope="row">1</th>-->
+            <td>
+              <img src="../../assets/img/nokia 6.1.png" alt="Card image cap" class="prod-img img-fluid "
+                   style="width: 55px;height: 55px;padding: 0;">
+            </td>
+            <td>{{items.brand}}</td>
+            <td>{{items.name}}</td>
+            <td>Rs.{{items.price}}.00</td>
+          </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+      <div class="col-md-3">
+        <div>
+          <table class="table">
+            <tbody >
+            <tr>
+              <td>cart items quantity :</td>
+              <td>{{cartitem}}</td>
+            </tr>
+            <tr>
+              <td>Subtotal :</td>
+              <td>Rs.{{cartvalue}}.00</td>
+            </tr>
+
+            </tbody>
+          </table>
+<!--          <a class="btn primary"  (click)="placeorder()" href="#">Place order</a>-->
+          <button type="button" class="btn btn-outline-primary w-100" (click)="placeorder()"  data-mdb-ripple-color="dark">Place order</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</form>
+</body>
+
+</html>
